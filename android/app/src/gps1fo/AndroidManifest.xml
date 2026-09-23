@@ -1,0 +1,28 @@
+<!-- Manifeste du flavor GPS 1fo. Fichier AJOUTÉ : le fusionneur d'AGP l'applique par-dessus
+     celui de l'amont, qui reste intact (ADR-0007). -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <application
+        tools:replace="android:label"
+        android:label="GPS 1fo">
+
+        <!-- Clé de licence commerciale Transistor Software, liée à l'identifiant de paquet
+             org.traccar.client et dont le greffon n'est plus une dépendance depuis la migration
+             vers traccar_client_sdk. Retirée du livrable sans toucher au manifeste amont. -->
+        <meta-data
+            android:name="com.transistorsoft.locationmanager.license"
+            tools:node="remove" />
+
+        <!-- gps1fo:// s'AJOUTE au schéma amont, qui subsiste : le fusionneur ajoute un <data>,
+             il n'en remplace pas. Les liens déjà distribués continuent donc de fonctionner.
+             Écart assumé avec docs/07 §2, inscrit dans l'ADR-0007. -->
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <data android:scheme="gps1fo"/>
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
