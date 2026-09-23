@@ -28,6 +28,12 @@ dependencies:
   share_plus: ^13.3.0
   managed_configurations: ^1.2.0
 
+# Copie corrigée : la version publiée de managed_configurations ne construit pas.
+# Motif, correctif et conditions de retrait : third_party/managed_configurations/CORRECTIF-GPS1FO.md
+dependency_overrides:
+  managed_configurations:
+    path: third_party/managed_configurations
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
