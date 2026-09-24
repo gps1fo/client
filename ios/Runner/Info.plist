@@ -31,7 +31,7 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>gps1fo</string>
+				<string>gps1fo.client</string>
 				<!-- Schéma amont conservé : le code Dart le route encore. -->
 				<string>org.traccar.client</string>
 			</array>

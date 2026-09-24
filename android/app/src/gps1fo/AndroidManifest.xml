@@ -13,15 +13,19 @@
             android:name="com.transistorsoft.locationmanager.license"
             tools:node="remove" />
 
-        <!-- gps1fo:// s'AJOUTE au schéma amont, qui subsiste : le fusionneur ajoute un <data>,
-             il n'en remplace pas. Les liens déjà distribués continuent donc de fonctionner.
-             Écart assumé avec docs/07 §2, inscrit dans l'ADR-0007. -->
+        <!-- gps1fo.client:// s'AJOUTE au schéma amont, qui subsiste : le fusionneur ajoute un
+             <data>, il n'en remplace pas. Les liens déjà distribués continuent de fonctionner,
+             et _handleUri ne teste que l'hôte, jamais le schéma.
+             Le schéma est PROPRE à cette application. Un schéma partagé avec le gestionnaire
+             serait réclamé par les deux, et Android présenterait « Ouvrir avec » au lieu de
+             router le lien — constaté sur appareil réel le 24/09/2026. L'amont faisait déjà
+             ainsi : org.traccar.client d'un côté, org.traccar.manager de l'autre. -->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
                 <category android:name="android.intent.category.BROWSABLE"/>
-                <data android:scheme="gps1fo"/>
+                <data android:scheme="gps1fo.client"/>
             </intent-filter>
         </activity>
     </application>
