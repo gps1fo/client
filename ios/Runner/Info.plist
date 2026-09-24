@@ -11,7 +11,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Traccar Client</string>
+	<string>GPS 1fo</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>traccar_client</string>
+	<string>gps1fo</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,6 +31,8 @@
 		<dict>
 			<key>CFBundleURLSchemes</key>
 			<array>
+				<string>gps1fo</string>
+				<!-- Schéma amont conservé : le code Dart le route encore. -->
 				<string>org.traccar.client</string>
 			</array>
 		</dict>
